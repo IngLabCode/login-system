@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ForgotPasswordResponse {
+public class ResetPasswordResponse {
     private String message;
     private boolean success;
 }

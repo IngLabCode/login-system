@@ -21,17 +21,24 @@ public class RegisterRequest {
     @Size(min = 2, max = 50, message = "Lastname must be between 2 and 50 characters")
     private String lastname;
 
-    @NotNull(message = "Phone number cannot be null")
-    @Digits(integer = 10, fraction = 0, message = "Phone number must be a 10-digit number")
-    private Integer phone;
+    @NotBlank(message = "Phone number cannot be blank")
+    @Pattern(
+            regexp = "^\\+?[1-9]\\d{1,14}$",
+            message = "Phone number must be a valid international number (e.g., +1234567890)"
+    )
+    private String phone;
+
 
     @NotBlank(message = "Email cannot be blank")
     @Email(message = "Email should be valid")
+    @Pattern(
+            regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$",
+            message = "Email should follow the standard pattern (e.g., example@mail.com)"
+    )
     private String email;
+
 
     @NotBlank(message = "Password cannot be blank")
     @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",
-            message = "Password must contain at least one digit, one lowercase, one uppercase, and one special character")
     private String password;
 }

@@ -11,8 +11,9 @@ import java.util.Optional;
 @Repository
 public interface OtpRepository extends JpaRepository<Otp, Integer> {
 
-    @Query("SELECT o FROM Otp o WHERE o.email = ?1 AND o.otpCode = ?2 AND o.expiresAt > ?3 AND o.used = false")
-    Optional<Otp> findValidOtp(String email, String otpCode, LocalDateTime now);
+    @Query("SELECT o FROM Otp o WHERE o.otpCode = ?1 AND o.expiresAt > ?2 AND o.used = false")
+    Optional<Otp> findValidOtp(String otpCode, LocalDateTime now);
+
 
     Optional<Otp> findTopByEmailOrderByCreatedAtDesc(String email);
 }

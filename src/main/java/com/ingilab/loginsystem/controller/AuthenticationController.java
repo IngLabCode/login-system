@@ -6,6 +6,7 @@ import com.ingilab.loginsystem.dto.request.RegisterRequest;
 import com.ingilab.loginsystem.dto.request.VerifyOtpRequest;
 import com.ingilab.loginsystem.dto.response.AuthenticationResponse;
 import com.ingilab.loginsystem.dto.response.ForgotPasswordResponse;
+import com.ingilab.loginsystem.dto.response.ResetPasswordResponse;
 import com.ingilab.loginsystem.service.AuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -55,7 +56,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/reset-password")
-    public ResponseEntity<ForgotPasswordResponse> resetPassword(
+    public ResponseEntity<ResetPasswordResponse> resetPassword(
             @RequestBody VerifyOtpRequest request
     ) {
         return ResponseEntity.ok(service.verifyOtpAndResetPassword(request));
