@@ -23,8 +23,8 @@ public class RegisterRequest {
 
     @NotBlank(message = "Phone number cannot be blank")
     @Pattern(
-            regexp = "^\\+?[1-9]\\d{1,14}$",
-            message = "Phone number must be a valid international number (e.g., +1234567890)"
+            regexp = "^\\+[1-9]\\d{1,14}$",
+            message = "Phone number must be in international format (e.g., +994507330265)"
     )
     private String phone;
 
