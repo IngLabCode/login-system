@@ -15,11 +15,8 @@ public class RegisterRequest {
 
     @NotBlank(message = "Firstname cannot be blank")
     @Size(min = 2, max = 50, message = "Firstname must be between 2 and 50 characters")
-    private String firstname;
+    private String name;
 
-    @NotBlank(message = "Lastname cannot be blank")
-    @Size(min = 2, max = 50, message = "Lastname must be between 2 and 50 characters")
-    private String lastname;
 
     @NotBlank(message = "Phone number cannot be blank")
     @Pattern(
